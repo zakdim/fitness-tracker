@@ -25,3 +25,28 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Section 03: Angular Material
+
+### 22. Adding Angular Material to a Project
+
+
+
+```
+# Install Angular Material and Angular CDK
+npm install --save @angular/material @angular/cdk
+
+# Animations
+npm install --save @angular/animations
+
+# Configure material in app module
+...
+
+# Add Gesture Support
+npm install --save hammerjs
+
+# Add Material Icons
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+```
+
