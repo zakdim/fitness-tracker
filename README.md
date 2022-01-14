@@ -52,3 +52,14 @@ npm install --save hammerjs
 
 ```
 
+### 26. Creating the Course App Structure
+
+```
+ng g c auth/signup --module app.module
+ng g c auth/login --module app.module
+ng g c training --module app.module
+ng g c training/current-training --module app.module
+ng g c training/new-training --module app.module
+ng g c training/past-trainings --module app.module
+ng g c welcome --module app.module
+```
