@@ -63,3 +63,13 @@ ng g c training/new-training --module app.module
 ng g c training/past-trainings --module app.module
 ng g c welcome --module app.module
 ```
+
+### 29. Controlling the Layout with @angular/flex-layout
+
+* [Angular Flex Layout - API Documentation](https://github.com/angular/flex-layout/wiki/API-Documentation)
+* [Angular Flex Layout - Using Angular CLI](https://github.com/angular/flex-layout/wiki/Using-Angular-CLI)
+
+```
+# Install flex-layout
+npm install @angular/flex-layout --save
+```
