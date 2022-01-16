@@ -51,7 +51,6 @@ npm install --save hammerjs
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 ```
-
 ### 26. Creating the Course App Structure
 
 ```
@@ -83,3 +82,11 @@ Angular Material Github Repo: https://github.com/angular/material2
 Flexbox Guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 Flexbox Video: https://academind.com/learn/css/understanding-css/flexbox-basics-container
 
+## Section 04: Diving Deeper into Angular Material
+
+### 44. Splitting the Navigation Into Components
+
+```
+ng g c navigation/header --module app.module
+ng g c navigation/sidenav-list --module app.module
+```
