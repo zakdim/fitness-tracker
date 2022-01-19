@@ -90,3 +90,11 @@ Flexbox Video: https://academind.com/learn/css/understanding-css/flexbox-basics-
 ng g c navigation/header --module app.module
 ng g c navigation/sidenav-list --module app.module
 ```
+
+## Section 05: Working with Data and Angular Material
+
+### 57. Important: RxJS 6
+
+```
+npm install --save rxjs-compat
+```
