@@ -8,3 +8,6 @@ a:active {
   color: lightgray;
 }
 
+mat-icon {
+  padding-right: 10px;
+}
