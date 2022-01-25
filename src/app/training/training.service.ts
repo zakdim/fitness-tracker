@@ -1,3 +1,5 @@
+import { Subject } from "rxjs";
+
 import { Exercise } from "./exercise.model";
 
 export function compareByName(e1: Exercise, e2: Exercise) {
@@ -5,6 +7,9 @@ export function compareByName(e1: Exercise, e2: Exercise) {
 };
 
 export class TrainingService {
+
+  exerciseChanged = new Subject<Exercise>();
+
   private availableExercises: Exercise[] = [
     { id: 'crunches', name: 'Crunches', duration: 30, calories: 8 },
     { id: 'touch-toes', name: 'Touch Toes', duration: 180, calories: 15 },
@@ -12,13 +17,16 @@ export class TrainingService {
     { id: 'burpees', name: 'Burpees', duration: 60, calories: 8 },
   ];
 
-  private runningExercise: Exercise | undefined;
+  private runningExercise!: Exercise;
 
   getAvailableExercises() {
     return this.availableExercises.slice().sort(compareByName);
   }
 
   startExercise(selectedId: string) {
-    this.runningExercise = this.availableExercises.find(ex => ex.id === selectedId);
+    this.runningExercise = (this.availableExercises.find(ex =>
+      ex.id === selectedId
+    )) as Exercise;
+    this.exerciseChanged.next({ ...this.runningExercise });
   }
 }
