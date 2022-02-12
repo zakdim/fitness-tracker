@@ -8,7 +8,7 @@ export function compareByName(e1: Exercise, e2: Exercise) {
 
 export class TrainingService {
 
-  exerciseChanged = new Subject<Exercise>();
+  exerciseChanged = new Subject<Exercise|null>();
 
   private availableExercises: Exercise[] = [
     { id: 'crunches', name: 'Crunches', duration: 30, calories: 8 },
@@ -17,7 +17,8 @@ export class TrainingService {
     { id: 'burpees', name: 'Burpees', duration: 60, calories: 8 },
   ];
 
-  private runningExercise!: Exercise;
+  private runningExercise: Exercise | undefined | null;
+  private exercises: Exercise[] = [];
 
   getAvailableExercises() {
     return this.availableExercises.slice().sort(compareByName);
@@ -28,6 +29,28 @@ export class TrainingService {
       ex.id === selectedId
     )) as Exercise;
     this.exerciseChanged.next({ ...this.runningExercise });
+  }
+
+  completeExercise() {
+    this.exercises.push({
+      ...this.runningExercise as Exercise,
+      date: new Date(),
+      state: 'completed'
+    });
+    this.runningExercise = null;
+    this.exerciseChanged.next(null);
+  }
+
+  cancelExercise(progress: number) {
+    this.exercises.push({
+      ...this.runningExercise as Exercise,
+      duration: (this.runningExercise as Exercise).duration * (progress / 100),
+      calories: (this.runningExercise as Exercise).duration * (progress / 100),
+      date: new Date(),
+      state: 'cancelled'
+    });
+    this.runningExercise = null;
+    this.exerciseChanged.next(null);
   }
 
   getRunningExercise() {
