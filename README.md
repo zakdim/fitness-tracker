@@ -104,7 +104,12 @@ npm install --save rxjs-compat
 ### 80. Getting Started with Firebase
 
 * Create new Firebase project `ng-fitness-tracker`:
-
 https://console.firebase.google.com/u/0/project/ng-fitness-tracker-d0e4e/overview
 
+### 83. Dive into Firebase
 
+* Create Firebase Database (Cloud Firestore):
+https://console.firebase.google.com/u/0/project/ng-fitness-tracker-d0e4e/firestore/data/~2F
+
+* Cloud Firestore Data Model - Documentation:
+https://firebase.google.com/docs/firestore/data-model
