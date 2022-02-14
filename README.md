@@ -113,3 +113,34 @@ https://console.firebase.google.com/u/0/project/ng-fitness-tracker-d0e4e/firesto
 
 * Cloud Firestore Data Model - Documentation:
 https://firebase.google.com/docs/firestore/data-model
+
+### 84. Listening to Value Changes (of Firestore)
+
+```
+# The following did not work
+# npm install angularfire2 firebase --save
+
+# Use official github page:
+# https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md
+ng add @angular/fire
+
+```
+
+To host your site with Firebase Hosting, you need the Firebase CLI (a command line tool:
+
+```
+npm install -g firebase-tools
+```
+
+* Deploy to Firebase Hosting
+
+```
+# Sign in to Google
+firebase login
+
+# Initiate your project
+firebase init
+
+# When you are ready deploy your web app
+firebase deploy
+```
