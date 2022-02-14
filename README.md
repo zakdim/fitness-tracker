@@ -98,3 +98,13 @@ ng g c navigation/sidenav-list --module app.module
 ```
 npm install --save rxjs-compat
 ```
+
+## Section 06: Using Angularfire and Firebase
+
+### 80. Getting Started with Firebase
+
+* Create new Firebase project `ng-fitness-tracker`:
+
+https://console.firebase.google.com/u/0/project/ng-fitness-tracker-d0e4e/overview
+
+
