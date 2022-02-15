@@ -1,4 +1,7 @@
+import { Injectable } from "@angular/core";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { Subject } from "rxjs";
+import { map } from "rxjs/operators";
 
 import { Exercise } from "./exercise.model";
 
@@ -6,22 +9,37 @@ export function compareByName(e1: Exercise, e2: Exercise) {
   return e1.name.localeCompare(e2.name)
 };
 
+@Injectable()
 export class TrainingService {
 
   exerciseChanged = new Subject<Exercise|null>();
-
-  private availableExercises: Exercise[] = [
-    { id: 'crunches', name: 'Crunches', duration: 30, calories: 8 },
-    { id: 'touch-toes', name: 'Touch Toes', duration: 180, calories: 15 },
-    { id: 'side-lunges', name: 'Side Lunges', duration: 120, calories: 18 },
-    { id: 'burpees', name: 'Burpees', duration: 60, calories: 8 },
-  ];
-
+  exercisesChanged = new Subject<Exercise[]>();
+  private availableExercises: Exercise[] = [];
   private runningExercise: Exercise | undefined | null;
   private exercises: Exercise[] = [];
 
-  getAvailableExercises() {
-    return this.availableExercises.slice().sort(compareByName);
+  constructor(private db: AngularFirestore) {}
+
+  fetchAvailableExercises() {
+    // return this.availableExercises.slice().sort(compareByName);
+    this.db
+      .collection('availableExercises')
+      .snapshotChanges()
+      .pipe(
+        // tap(docArray => console.log(docArray)),
+        map(docArray => {
+          return docArray.map(doc => {
+            return {
+              id: doc.payload.doc.id,
+              ...(doc.payload.doc.data() as Object)
+            } as Exercise;
+          })
+        })
+      )
+      .subscribe((exercises: Exercise[]) => {
+        this.availableExercises = exercises.sort(compareByName);
+        this.exercisesChanged.next([...this.availableExercises]);
+      });
   }
 
   startExercise(selectedId: string) {
