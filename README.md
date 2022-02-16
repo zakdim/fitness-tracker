@@ -126,21 +126,10 @@ ng add @angular/fire
 
 ```
 
-To host your site with Firebase Hosting, you need the Firebase CLI (a command line tool:
+* AngularFire Doc:
+https://github.com/angular/angularfire
 
-```
-npm install -g firebase-tools
-```
+* Documents in AngularFirestore:
+https://github.com/angular/angularfire/blob/master/docs/firestore/documents.md
 
-* Deploy to Firebase Hosting
 
-```
-# Sign in to Google
-firebase login
-
-# Initiate your project
-firebase init
-
-# When you are ready deploy your web app
-firebase deploy
-```
