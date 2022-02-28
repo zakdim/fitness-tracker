@@ -133,3 +133,12 @@ https://github.com/angular/angularfire
 https://github.com/angular/angularfire/blob/master/docs/firestore/documents.md
 
 
+## Section 07: Optimizing the App
+
+### 111. Wrap Up
+
+* Test build for production
+
+```
+ng build --prod
+```
