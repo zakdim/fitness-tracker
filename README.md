@@ -142,3 +142,11 @@ https://github.com/angular/angularfire/blob/master/docs/firestore/documents.md
 ```
 ng build --prod
 ```
+
+## Section 08: Using NgRx for State Management
+
+### 115. NgRx Core Concepts - A First Example
+
+```
+npm install --save @ngrx/store@~12.2
+```
