@@ -7,8 +7,8 @@ export class StartLoading implements Action {
   readonly type = START_LOADING;
 }
 
-export class StoptLoading implements Action {
+export class StopLoading implements Action {
   readonly type = STOP_LOADING;
 }
 
-export type UIActions = StartLoading | StoptLoading;
+export type UIActions = StartLoading | StopLoading;
