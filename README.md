@@ -158,3 +158,26 @@ npm install --save @ngrx/store@~12.2
 ``` 
 ng build --prod
 ```
+
+### 132. Deploying the App to Firebase Hosting
+
+* Install Firebase CLI
+
+``` 
+npm install -g firebase-tools
+
+firebase login
+firebase init
+# Select 'Hosting' (hit Space and Enter)
+# Choose ng-fitness-tracker
+? What do you want to use as your public directory? (public) dist
+? Configure as a single-page app (rewrite all urls to /index.html)? (y/N) y
+
+firebase deploy
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/ng-fitness-tracker-d0e4e/overview
+Hosting URL: https://ng-fitness-tracker-d0e4e.web.app
+```
+
