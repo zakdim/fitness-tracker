@@ -150,3 +150,11 @@ ng build --prod
 ```
 npm install --save @ngrx/store@~12.2
 ```
+
+## Section 09: Deploying the App
+
+### 131. Introduction & Preparation
+
+``` 
+ng build --prod
+```
