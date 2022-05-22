@@ -54,6 +54,10 @@ export function trainingReducer(state = initialState, action: TrainingActions) {
   }
 }
 
+export function compareByName(e1: Exercise, e2: Exercise) {
+  return e1.name.localeCompare(e2.name);
+}
+
 export const getTrainingState = createFeatureSelector<TrainingState>('training');
 
 export const getAvailableExercises = createSelector(

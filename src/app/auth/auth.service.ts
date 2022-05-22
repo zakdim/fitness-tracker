@@ -35,38 +35,28 @@ export class AuthService {
   }
 
   registerUser(authData: AuthData) {
-    // this.uiService.loadingStateChanged.next(true);
     this.store.dispatch(new UI.StartLoading());
     this.afAuth.createUserWithEmailAndPassword(
       authData.email,
       authData.password
     ).then(result => {
-      // console.log(result);
-      // this.uiService.loadingStateChanged.next(false);
       this.store.dispatch(new UI.StopLoading());
     })
     .catch(error => {
-      // console.log(error);
-      // this.uiService.loadingStateChanged.next(false);
       this.store.dispatch(new UI.StopLoading());
       this.uiService.showSnackbar(error.message, undefined, 3000);
     });
   }
 
   login(authData: AuthData) {
-    // this.uiService.loadingStateChanged.next(true);
     this.store.dispatch(new UI.StartLoading());
     this.afAuth.signInWithEmailAndPassword(
       authData.email,
       authData.password
     ).then(result => {
-      // console.log(result);
-      // this.uiService.loadingStateChanged.next(false);
       this.store.dispatch(new UI.StopLoading());
     })
     .catch(error => {
-      // console.log(error);
-      // this.uiService.loadingStateChanged.next(false);
       this.store.dispatch(new UI.StopLoading());
       this.uiService.showSnackbar(error.message, undefined, 3000);
     });

@@ -1,26 +1,17 @@
-import { Injectable } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/compat/firestore";
-import { Subject, Subscription } from "rxjs";
-import {map, take} from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Subscription } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import { Exercise } from "./exercise.model";
-import { UIService } from "../shared/ui.service";
+import { Exercise } from './exercise.model';
+import { UIService } from '../shared/ui.service';
 import * as UI from '../shared/ui.actions';
 import * as fromTraining from './training.reducer';
-import * as Training from "./training.actions";
-
-export function compareByName(e1: Exercise, e2: Exercise) {
-  return e1.name.localeCompare(e2.name)
-};
+import * as Training from './training.actions';
 
 @Injectable()
 export class TrainingService {
-  exerciseChanged = new Subject<Exercise | null>();
-  exercisesChanged = new Subject<Exercise[]>();
-  finishedExercisesChanged = new Subject<Exercise[]>();
-  private availableExercises: Exercise[] = [];
-  private runningExercise: Exercise | undefined | null;
   private fbSubs: Subscription[] = [];
 
   constructor(
@@ -59,7 +50,6 @@ export class TrainingService {
               undefined,
               3000
             );
-            this.exercisesChanged.next(undefined);
           }
         )
     );
