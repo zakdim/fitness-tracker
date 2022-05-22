@@ -27,9 +27,7 @@ export class TrainingService {
         .collection('availableExercises')
         .snapshotChanges()
         .pipe(
-          // tap(docArray => console.log(docArray)),
           map((docArray) => {
-            // throw(new Error());
             return docArray.map((doc) => {
               return {
                 id: doc.payload.doc.id,
@@ -80,7 +78,7 @@ export class TrainingService {
           duration: (ex as Exercise).duration * (progress / 100),
           calories: (ex as Exercise).calories * (progress / 100),
           date: new Date(),
-          state: 'completed',
+          state: 'cancelled',
         });
         this.store.dispatch(new Training.StopTraining());
       });
